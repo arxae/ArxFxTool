@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArxFxTool", "ArxFxTool\ArxFxTool.csproj", "{33D88E6F-EDFB-4D47-9A53-D735A0D4F334}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArxFxTool.Editor", "ArxFxTool.Editor\ArxFxTool.Editor.csproj", "{3C069E3D-C0D5-4FBC-BC27-94989CE62913}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{33D88E6F-EDFB-4D47-9A53-D735A0D4F334}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33D88E6F-EDFB-4D47-9A53-D735A0D4F334}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33D88E6F-EDFB-4D47-9A53-D735A0D4F334}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33D88E6F-EDFB-4D47-9A53-D735A0D4F334}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C069E3D-C0D5-4FBC-BC27-94989CE62913}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C069E3D-C0D5-4FBC-BC27-94989CE62913}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C069E3D-C0D5-4FBC-BC27-94989CE62913}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C069E3D-C0D5-4FBC-BC27-94989CE62913}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

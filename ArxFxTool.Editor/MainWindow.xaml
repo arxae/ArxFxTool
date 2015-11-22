@@ -1,0 +1,63 @@
+﻿<MahApps:MetroWindow x:Class="ArxFxTool.Editor.MainWindow"
+					 x:Name="ArxFxEditorMainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		xmlns:avalonEdit="http://icsharpcode.net/sharpdevelop/avalonedit"
+		xmlns:MahApps="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+		xmlns:editor="clr-namespace:ArxFxTool.Editor"
+		mc:Ignorable="d"
+		GlowBrush="{DynamicResource AccentColorBrush}"
+        Title="MainWindow" Height="350" Width="600">
+	<MahApps:MetroWindow.LeftWindowCommands>
+		<MahApps:WindowCommands>
+			<Button Content="Menu" Click="MenuButton_Click">
+				<Button.ContextMenu>
+					<ContextMenu x:Name="Menu">
+						<MenuItem Header="New file.." Click="MenuNewButton" />
+						<MenuItem Header="Open ArxFX folder.." x:Name="OpenAFXFolderMenuItem" Click="OpenAFXFolderMenuItem_Click" />
+						<Separator />
+						<MenuItem Header="Close" Click="MenuExitButton" />
+					</ContextMenu>
+				</Button.ContextMenu>
+			</Button>
+		</MahApps:WindowCommands>
+	</MahApps:MetroWindow.LeftWindowCommands>
+	<MahApps:MetroWindow.Flyouts>
+		<MahApps:FlyoutsControl>
+			<MahApps:Flyout x:Name="NewItemMenu" Header="New File" Theme="Adapt" Position="Bottom" 
+							Width="{Binding ElementName=ArxFxEditorMainWindow, Path=Width}">
+				<StackPanel Orientation="Vertical">
+					<TextBox x:Name="NewFileName" Margin="5" />
+					<Button Content="Ok" Margin="5" Click="CreateNewFileOkButton"  />
+				</StackPanel>
+			</MahApps:Flyout>
+		</MahApps:FlyoutsControl>
+	</MahApps:MetroWindow.Flyouts>
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="100" />
+			<ColumnDefinition Width="3" />
+			<ColumnDefinition Width="*" />
+		</Grid.ColumnDefinitions>
+		<Grid.Resources>
+			<HierarchicalDataTemplate DataType="{x:Type editor:DirectoryItem}"
+									  ItemsSource="{Binding Items}">
+				<TextBlock Text="{Binding Path=Name}" />
+			</HierarchicalDataTemplate>
+
+			<DataTemplate DataType="{x:Type editor:FileItem}">
+				<TextBlock Text="{Binding Path=Name}" />
+			</DataTemplate>
+		</Grid.Resources>
+
+		<TreeView x:Name="FileTree" ItemsSource="{Binding}" FontSize="9" 
+				  MouseDoubleClick="FileTree_DoubleClick" />
+		
+		<GridSplitter Grid.Column="1" HorizontalAlignment="Stretch" />
+		
+		<avalonEdit:TextEditor x:Name="CodeEditor" SyntaxHighlighting="C++" FontFamily="Consolas"
+							   FontSize="10pt" ShowLineNumbers="True" Grid.Column="2"/>
+	</Grid>
+</MahApps:MetroWindow>
